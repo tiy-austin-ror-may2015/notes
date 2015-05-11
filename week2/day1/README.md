@@ -31,4 +31,4 @@
 
 ## Assignment:
    - Complete: [Ruby Basics Quiz](https://github.com/jah2488/notes/blob/master/ruby-basics.md)
-   - Complete: [Ruby Profile Info](https://github.com/jah2488/notes/blob/master/profile-info.md)
+   - Complete: [Ruby Profile Info](https://github.com/jah2488/notes/blob/master/ruby-profile.md)
