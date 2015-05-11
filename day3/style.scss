@@ -1,0 +1,15 @@
+$primary-color: blue;
+
+h1 {
+  font-size: 99px;
+}
+
+.foo {
+
+  .bar {
+
+    background: $primary-color;
+
+  }
+
+}

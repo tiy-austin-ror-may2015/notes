@@ -1,0 +1,51 @@
+header {
+  background: rgb(186, 114, 219);
+  color: white;
+  height: 100px;
+  width: 250px;
+  margin: 0 auto
+}
+
+
+h1 {
+  padding-top: 30px;
+}
+
+h3 {
+  border-color: black;
+  border-width: 2px;
+  border-style: solid;
+  margin-left: 30px;
+  /*padding-left: 30px;*/
+}
+
+a {
+  font-size: 32px;
+  color: rgb(186, 114, 219);
+  text-decoration: none;
+}
+
+a:hover {
+  font-weight: bold;
+  border-bottom-width: 2px;
+  border-bottom-style: solid;
+}
+
+.legal {
+  color: #FDB082;
+  text-align: center;
+  font-size: 17px;
+}
+
+.important {
+  color: red;
+}
+
+.legal.important {
+  color: purple;
+}
+
+
+
+
+
