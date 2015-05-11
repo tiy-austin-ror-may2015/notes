@@ -1,6 +1,11 @@
 # Week 2 / Day 1
 
 ## Notes:
+   - Welcome to K
+   - Classroom Tool
+   - Keep up the great work
+   - Slack, use it
+   - Review sessions are by request
 
 ## Goals:
    - Install Ruby
