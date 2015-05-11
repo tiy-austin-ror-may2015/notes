@@ -30,5 +30,5 @@
    - [ApiDock Ruby](http://apidock.com/ruby/)
 
 ## Assignment:
-   - Complete: [Ruby Basics Quiz]()
-   - Complete: [Ruby Profile Info]()
+   - Complete: [Ruby Basics Quiz](https://github.com/jah2488/notes/blob/master/ruby-basics.md)
+   - Complete: [Ruby Profile Info](https://github.com/jah2488/notes/blob/master/profile-info.md)
