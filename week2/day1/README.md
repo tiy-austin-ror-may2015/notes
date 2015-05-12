@@ -1,5 +1,5 @@
 # Week 2 / Day 1
-
+random
 ## Notes:
    - Welcome to K
    - Classroom Tool
