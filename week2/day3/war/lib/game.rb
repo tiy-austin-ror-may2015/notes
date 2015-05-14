@@ -9,6 +9,11 @@ class Game
     @player_two.deck = Deck.new
     @player_one.name = "You"
     @player_two.name = "AI"
+
+    @hand = Hand.new([
+      @player_one.draw,
+      @player_one.draw,
+    ])
   end
 
   def start
