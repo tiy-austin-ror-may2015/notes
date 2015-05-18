@@ -19,7 +19,7 @@ end
 ###Writing a Test
 When writing a test, you want to follow a few guidelines. Each test needs to setup a situation in your code. Then it needs to act on that situation and `assert` a result. This style is usually referred to as a 'Given', 'When', 'Then' style of testing.
 
-```
+``` rb
   def test_greater_than_five_returns_true
     my_num = 10 #GIVEN (my_num is 10)
     result = greater_than_five?(my_num) #WHEN greater_than_five? is called with my_num
