@@ -1,4 +1,6 @@
 class Card
+  SUITS = [:heart, :spade, :diamond, :club]
+
   attr_reader :suit, :value
 
   def initialize(suit, value)
