@@ -98,9 +98,9 @@ end
 ```
 
 
-### Resources
-  - http://en.wikibooks.org/wiki/Ruby_Programming/Unit_testing
-  - http://learnrubythehardway.org/book/ex47.html
-  - http://c2.com/cgi/wiki?TestDrivenDevelopment
-  - http://luizricardo.org/wordpress/wp-content/upload-files/2014/05/tdd_flow.gif
-  - https://github.com/garora/TDD-Katas
+### Additional Resources
+  - [Unit Testing in Ruby](http://en.wikibooks.org/wiki/Ruby_Programming/Unit_testing)
+  - [Ruby The Hard Way: Unit Testing (not for the faint of heart)](http://learnrubythehardway.org/book/ex47.html)
+  - [What is TDD?](http://c2.com/cgi/wiki?TestDrivenDevelopment)
+  - [TDD Flow Chart Graphic](http://luizricardo.org/wordpress/wp-content/upload-files/2014/05/tdd_flow.gif)
+  - [TDD Katas](https://github.com/garora/TDD-Katas)
