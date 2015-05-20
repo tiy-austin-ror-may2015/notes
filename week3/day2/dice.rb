@@ -2,7 +2,6 @@
 # ^ Tells the shell that this is a ruby file
 # Dice Roller
 class Dice
-
   def initialize(sides = 6)
     @sides = sides
   end
