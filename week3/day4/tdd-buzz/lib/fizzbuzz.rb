@@ -1,4 +1,6 @@
 class Fizzbuzz
+  #No puts needed.
+  #My range can be changed when I call the function allowing me to better test
   def run(max = 100)
     (1..max).map do |num|
       if num % 15 == 0
@@ -13,6 +15,7 @@ class Fizzbuzz
     end
   end
 
+  #Small methods are your friend
   def div_three(num)
     div_by_num(num, 3, 'fizz')
   end
@@ -25,6 +28,7 @@ class Fizzbuzz
     div_by_num(num, 15, 'fizzbuzz')
   end
 
+  #Methods all return values
   def div_by_num(num, divisor, return_str)
     if (num % divisor).zero?
       return_str
@@ -32,10 +36,4 @@ class Fizzbuzz
       num
     end
   end
-
-
-
-
-
-
 end

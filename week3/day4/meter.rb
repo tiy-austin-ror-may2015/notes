@@ -1,8 +1,14 @@
 #We can define our own custom exceptions to use in our own code
 class NotAValidMeasurementType < StandardError
+  #You can name your class whatever you want
+  #This will be the name of the error that gets printed out
+  #when you 'raise' it later.
+  #IT MUST BE A SUBCLASS FROM StandardError
 end
 
 class Meter
+  attr_reader :length
+
   def initialize(length = 1)
     @length = length
   end
@@ -21,9 +27,11 @@ class Meter
   end
 
   def -(other)
+    # Only subtract from this meter object unless the other object is also a meter
     if other.is_a?(Meter)
       @length -= other.length
     else
       raise NotAValidMeasurementType
     end
   end
+end
