@@ -1,5 +1,5 @@
 # This is my "Functional" version of the guessing game assignment
-# What I have done is basically the following:
+# What I have done is the following:
 #   - Use modules as namespaces to logically group my functions (methods)
 #   - No instance variables (or Ivars, as ruby calls them)
 #   - Deal only with direct data types (notice I created no classes and don't call .new anywhere)
