@@ -24,30 +24,30 @@ The basics of any SQL query are to select the fields you want from a particular 
 _(Note the `;` semicolon at the end of the line. **Every** SQL statement must end with a semicolon)_
 
 ### Getting Everything
-###`SELECT * FROM products;`
+####`SELECT * FROM products;`
 If we are simply looking for every product and every **column** then we can ask for `*` from `products`. In SQL `*` is considered a wildcard that says to return every field.
 
 ### Putting a LIMIT on How Much We Get Back
-### `SELECT * FROM products LIMIT(1);`
+####`SELECT * FROM products LIMIT(1);`
 If we are not concerned with getting back every record, but instead want a certain _amount_ of records. We can achieve that via the `LIMIT` function
 
 ### Starting with an OFFSET
-### `SELECT * FROM products LIMIT(-1) OFFSET(5);`
+#### `SELECT * FROM products LIMIT(-1) OFFSET(5);`
 If we need to start at a certain row and begin our query from there, we have this handy `OFFSET` function built in to do just that. See how `LIMIT` is being passed `-1`? That is because you cannot use `OFFSET` by itself in sqlite. Setting limit to -1 states that there is no limit.
 
 ### Only Getting Certain Fields
-###`SELECT name, cost FROM products;`
+####`SELECT name, cost FROM products;`
 If we do not need every single field from table it is better to ask for the fields we need explicitly. Notice that they are comma separated.
 
 ### Maintaining ORDER with Results
-###`SELECT * FROM products ORDER BY name;`
+####`SELECT * FROM products ORDER BY name;`
 When we need our results in a particular order, we have the `ORDER BY` keyword to let us supply which field they should be sorted by. This will make the results alphabetical is the type of the field specified is a string or numerically if it is an int.
 
 
 ### Limiting The Results with WHERE
-###`SELECT * FROM products WHERE quantity > 15;`
-###`SELECT name FROM products WHERE quantity > 0 AND cost < 200.00;`
-###`SELECT * FROM products WHERE name = 'Quadcopter' || name = 'Duecopter';`
+#####`SELECT * FROM products WHERE quantity > 15;`
+#####`SELECT name FROM products WHERE quantity > 0 AND cost < 200.00;`
+#####`SELECT * FROM products WHERE name = 'Quadcopter' || name = 'Duecopter';`
 Sooner than later we are going to want only specific records from our database. Using `WHERE` we can place a **boolean statement** to the end of our query to filter what rows we receive back.
 We can also chain multiple boolean statements together through the use of the `AND` and `OR` keywords. They are functionally equivalent to `&&` and `||`.
 
