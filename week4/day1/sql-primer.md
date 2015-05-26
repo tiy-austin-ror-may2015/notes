@@ -10,7 +10,7 @@ If we want to *open* an existing sqlite database you simply state the path to th
 ## Writing Queries
 Once we have a sql prompt open, we can start to write queries against the data that we have. In our database we have a **table** called `products` and inside the `products` table we have the following **rows** of data. The **fields** of the `products` table are (`id`, `name`, `cost`, and `quantity`).
 
-###products
+#####products
 | id |    name    |    cost  | quantity |
 |--- | ----       | ----     |   ---    |
 | 1  | Quadcopter | 199.99   | 10 | 
@@ -51,6 +51,26 @@ When we need our results in a particular order, we have the `ORDER BY` keyword t
 Sooner than later we are going to want only specific records from our database. Using `WHERE` we can place a **boolean statement** to the end of our query to filter what rows we receive back.
 We can also chain multiple boolean statements together through the use of the `AND` and `OR` keywords. They are functionally equivalent to `&&` and `||`.
 
+### Joining Tables
+#####`SELECT * FROM students INNER JOIN checkins ON students.id = checkins.student_id WHERE checkins.id = 1;`
+This query is asking for all the fields on the student that has the same `id` as the `student_id` field on the checkins table.
+The above query is against these two tables:
+
+**students**
+
+| id  | name |
+|---  | ---- |
+| 23  | Jake |
+| 45  | Finn |
+
+**checkins**
+
+| id | student_id | time |
+|--- | ----       | ---- |
+| 1  | 23         | 8:00 |
+| 2  | 45         | 9:00 |
+
+Sometimes you need to make queries against data in multiple tables, but not all the data in both tables, just some. Joins are here to help. Joins are also a bit tricky at first. Don't feel bad if they take a little bit to wrap your head around. I still find myself scratching my head each time I go to write one. If you are a visual learning like myself, links like [this one](http://blog.codinghorror.com/a-visual-explanation-of-sql-joins/), [this one](http://www.sql-join.com/), and [this one](http://www.sitepoint.com/understanding-sql-joins-mysql-database/) should be helpful. 
 ### Other Useful Functions
 - `COUNT`
 - `SUM`
