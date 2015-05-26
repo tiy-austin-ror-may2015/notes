@@ -63,3 +63,19 @@ We can also chain multiple boolean statements together through the use of the `A
 - `RANDOM`
 - `REPLACE` _(Think of it as gsub)_
 - `TRIM`
+
+## Adding, Updating, and Deleting Rows
+
+###INSERT-ing New Rows
+#####`INSERT INTO products (id, name, cost, quantity) VALUES (5, rocket, 9.99, 100);`
+#####`INSERT INTO products (name, cost, quantity) VALUES (gocart, 999, 10);`
+Creating a row inside a table in a database is done by 'inserting' a list of values that correspond to the fields of that table. If you look at the second example, you can see that I left off the `ID` field. Because I know that my ID field is a `PRIMARY KEY` I can leave off setting it explicitly, because SQLITE will take care of that for me. From the SQlite Site:
+>On an INSERT, if the ROW_ID or INTEGER PRIMARY KEY column is not explicitly given a value, then it will be filled automatically with an unused integer, usually one more than the largest ROWID currently in use. This is true regardless of whether or not the AUTOINCREMENT keyword is used.
+
+###UPDATE-ing and SET-ing Rows
+#####`UPDATE products SET name = "Go Kart" WHERE name = 'gocart';`
+Updating a row is done by setting the values of certain fields, we specify which rows we want by adding a WHERE clause to the end. It is **very** important to be sure that your `WHERE` clause is correct before running an update query. Otherwise, you risk changing the data in rows that you did not intend.
+
+###DELETE-ing Some Data
+#####`DELETE FROM products WHERE id = 2;` 
+Deleting a row is a simple query that starts with the `DELETE` keyword and takes a `WHERE` clause. Like with `UPDATE` it is **so very** important that your `WHERE` clause is correct. You are better of triple checking your query _before_ running the delete command and realizing you've deleted way more rows than you wanted.
