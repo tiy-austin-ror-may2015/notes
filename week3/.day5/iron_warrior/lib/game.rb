@@ -15,13 +15,15 @@ end
 
 class Game
   def start
+    @turn  = 0
     @width = (`tput cols`.chomp.to_i / 4)
     system('clear')
     puts "Welcome to IRON WARRIOR"
-    @warrior = Warrior.new(2, 2)
+    @log     = [] #Replace with logger
+    @warrior = Warrior.new(2, 2, log: @log)
     @player  = Player.new
     @room    = Room.new(8, 3, [@warrior,
-                            Entity.new(7, 2, '♘'),
+                            Entity.new(7, 2, "\033[32m♘\033[m"),
                             Entity.new(8, 3, '☖')])
     step
   end
@@ -52,7 +54,7 @@ class Game
 
     puts lr_msg("Warrior(#{@warrior.x},#{@warrior.y})", "HP(#{@warrior.health})")
     puts lr_msg("Facing(#{@warrior.facing})", "▲")
-    puts lr_msg("", "N")
+    puts lr_msg("Turn ##{@turn}", "N")
 
     puts line
   end
@@ -67,9 +69,12 @@ class Game
 
   def step
     loop do
+      @turn += 1
       system('clear')
       print_hud
       print_room(@room.width, @room.height, @room.entities)
+      puts line
+      puts @log.reverse.take(5)
       puts line
       @player.step(@warrior)
       verify_step
@@ -93,8 +98,8 @@ end
 
 class Warrior
   attr_accessor :x, :y, :char, :health, :facing
-  def initialize(x, y, char = '😂 ')
-    @x = x; @y = y; @char = char; @health = 10; @facing = EAST;
+  def initialize(x, y, char = "\033[31m@\033[m", log: [])
+    @x = x; @y = y; @char = char; @health = 10; @facing = EAST; @log = log;
   end
   def walk!(direction)
     @facing = direction.upcase
@@ -104,6 +109,22 @@ class Warrior
     when EAST then  @x += 1
     when WEST then  @x -= 1
     end
+    @log.push "#{color(0)}Warrior#{reset} moves #{direction}"
+  end
+  def color(code)
+    case code
+    when 0 then "\033[31m" #red
+    when 1 then "\033[32m" #green
+    when 3 then "\033[33m" #yellow
+    when 4 then "\033[34m" #cyan
+    when 5 then "\033[36m"
+    else
+      "\033[35m" #magenta
+    end
+  end
+
+  def reset
+    "\033[m"
   end
 end
 Game.new.start
