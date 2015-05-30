@@ -1,6 +1,6 @@
 ## Topics
   - Memory and Ruby
-    - References vs Values
+    - References vs. Values
     - Ruby ObjectSpace
     - Garbage Collection
   - UML

@@ -7,7 +7,7 @@ This folder structure should be suitable for starting a project that uses a data
 * ... ?
 * Profit
 
-You may need to fiddle around with remotes assuming that you don't want to push to this one (which you probably don't).
+You may need to fiddle with remotes - assuming that you don't want to push to this one (which you probably don't).
 
 ## Rundown
 

@@ -4,12 +4,12 @@ The Ruby Koans walk you along the path to enlightenment in order to learn Ruby.
 The goal is to learn the Ruby language, syntax, structure, and some common
 functions and libraries. We also teach you culture by basing the koans on tests.
 Testing is not just something we pay lip service to, but something we
-live.  Testing is essential in your quest to learn and do great things in Ruby.
+live. Testing is essential in your quest to learn and do great things in Ruby.
 
 == The Structure
 
 The koans are broken out into areas by file, hashes are covered in +about_hashes.rb+,
-modules are introduced in +about_modules.rb+, <em>etc</em>.  They are presented in
+modules are introduced in +about_modules.rb+, <em>etc</em>. They are presented in
 order in the +path_to_enlightenment.rb+ file.
 
 Each koan builds up your knowledge of Ruby and builds upon itself. It will stop at
@@ -154,12 +154,12 @@ Install the Ruby gem (library) called +watchr+ and then ask it to
 == Inspiration
 
 A special thanks to Mike Clark and Ara Howard for inspiring this
-project.  Mike Clark wrote an excellent blog post about learning Ruby
+project. Mike Clark wrote an excellent blog post about learning Ruby
 through unit testing. This sparked an idea that has taken a bit to
 solidify, that of bringing new rubyists into the community through
 testing. Ara Howard then gave us the idea for the Koans in his ruby
 quiz entry on Meta Koans (a must for any rubyist wanting to improve
-their skills).  Also, "The Little Lisper" taught us all the value of
+their skills). Also, "The Little Lisper" taught us all the value of
 the short questions/simple answers style of learning.
 
 Mike Clark's post ::  http://www.clarkware.com/cgi/blosxom/2005/03/18
