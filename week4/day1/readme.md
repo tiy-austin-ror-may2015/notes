@@ -2,10 +2,10 @@
   - Dealing with errors
     - Understanding error messages
     - Reading line numbers
-    - Using puts and inspect
+    - Using `puts` and `inspect`
     - Using Pry
   - Databases
-    - Like CSVs but 1000 times better
+    - Like CSVs, but 1000 times better
     - Think spreadsheets.
     - Databases, Tables, Cols (fields), rows
   - SQL

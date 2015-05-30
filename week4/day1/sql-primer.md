@@ -2,18 +2,19 @@
 SQL is the leading language used to interact with Relational Databases like the ones used by most web sites. We will be using SQL as a way to QUERY existing data in our database and to INSERT new data to be saved for later.
 
 ## Getting Started
-The first we need to do is decide on what database we are using. For now we will be using [SQLite3](https://www.sqlite.org/) as our database of choice. SQLite is an awesome and light weight database that powers nearly every iPhone app and is the default database for Rails.
+The first we need to do is decide on the database we are using. For now, we will be using [SQLite3](https://www.sqlite.org/) as our database of choice. SQLite is an awesome and lightweight database that powers nearly every iPhone app and is the default database for Rails.
 
 Since we are using SQLite3, we can enter a sql prompt by typing `sqlite3` anywhere in the terminal.
 
-If we want to *open* an existing sqlite database you simply state the path to the database we are attempting to open `sqlite3 my_store.sqlite3`
+If we want to *open* an existing sqlite database, we simply state the path to the database we are attempting to open, as in: `sqlite3 my_store.sqlite3`
+
 ## Writing Queries
 Once we have a sql prompt open, we can start to write queries against the data that we have. In our database we have a **table** called `products` and inside the `products` table we have the following **rows** of data. The **fields** of the `products` table are (`id`, `name`, `cost`, and `quantity`).
 
 #####products
 | id |    name    |    cost  | quantity |
 |--- | ----       | ----     |   ---    |
-| 1  | Quadcopter | 199.99   | 10 | 
+| 1  | Quadcopter | 199.99   | 10 |
 | 2  | Teleporter | 99999    | 1  |
 | 3  | VR Headset | 250.00   | 20 |
 | 4  | Motion Sensor | 50.00 | 99 |
@@ -37,18 +38,18 @@ If we need to start at a certain row and begin our query from there, we have thi
 
 ### Only Getting Certain Fields
 ####`SELECT name, cost FROM products;`
-If we do not need every single field from table it is better to ask for the fields we need explicitly. Notice that they are comma separated.
+If we do not need every single field from table, it is better to ask for the fields we need explicitly. Notice that they are comma separated.
 
 ### Maintaining ORDER with Results
 ####`SELECT * FROM products ORDER BY name;`
-When we need our results in a particular order, we have the `ORDER BY` keyword to let us supply which field they should be sorted by. This will make the results alphabetical is the type of the field specified is a string or numerically if it is an int.
+When we need our results in a particular order, we have the `ORDER BY` keyword to let us supply which field they should be sorted by. This will make the results alphabetical if the type of the field specified is a string or numerically if it is an integer.
 
 
 ### Limiting The Results with WHERE
 #####`SELECT * FROM products WHERE quantity > 15;`
 #####`SELECT name FROM products WHERE quantity > 0 AND cost < 200.00;`
 #####`SELECT * FROM products WHERE name = 'Quadcopter' || name = 'Duecopter';`
-Sooner than later we are going to want only specific records from our database. Using `WHERE` we can place a **boolean statement** to the end of our query to filter what rows we receive back.
+Sooner or later, we are going to want only specific records from our database. Using `WHERE` we can place a **boolean statement** to the end of our query to filter which rows we receive back.
 We can also chain multiple boolean statements together through the use of the `AND` and `OR` keywords. They are functionally equivalent to `&&` and `||`.
 
 ### Joining Tables
@@ -70,7 +71,7 @@ The above query is against these two tables:
 | 1  | 23         | 8:00 |
 | 2  | 45         | 9:00 |
 
-Sometimes you need to make queries against data in multiple tables, but not all the data in both tables, just some. Joins are here to help. Joins are also a bit tricky at first. Don't feel bad if they take a little bit to wrap your head around. I still find myself scratching my head each time I go to write one. If you are a visual learning like myself, links like [this one](http://blog.codinghorror.com/a-visual-explanation-of-sql-joins/), [this one](http://www.sql-join.com/), and [this one](http://www.sitepoint.com/understanding-sql-joins-mysql-database/) should be helpful. 
+Sometimes you need to make queries against data in multiple tables, but not all the data in both tables, just some. Joins are here to help. Joins are also a bit tricky at first. Don't feel bad if they take a little bit to wrap your head around. I still find myself scratching my head each time I go to write one. If you are a visual learner like myself, links like [this one](http://blog.codinghorror.com/a-visual-explanation-of-sql-joins/), [this one](http://www.sql-join.com/), and [this one](http://www.sitepoint.com/understanding-sql-joins-mysql-database/) should be helpful.
 ### Other Useful Functions
 - `COUNT`
 - `SUM`
@@ -81,7 +82,7 @@ Sometimes you need to make queries against data in multiple tables, but not all 
 - `LOWER`
 - `UPPER`
 - `RANDOM`
-- `REPLACE` _(Think of it as gsub)_
+- `REPLACE` _(Think of it as `gsub` in Ruby)_
 - `TRIM`
 
 ## Adding, Updating, and Deleting Rows
@@ -94,8 +95,8 @@ Creating a row inside a table in a database is done by 'inserting' a list of val
 
 ###UPDATE-ing and SET-ing Rows
 #####`UPDATE products SET name = "Go Kart" WHERE name = 'gocart';`
-Updating a row is done by setting the values of certain fields, we specify which rows we want by adding a WHERE clause to the end. It is **very** important to be sure that your `WHERE` clause is correct before running an update query. Otherwise, you risk changing the data in rows that you did not intend.
+Updating a row is done by setting the values of certain fields; we specify which rows we want by adding a WHERE clause to the end. It is **very** important to be sure that your `WHERE` clause is correct before running an update query. Otherwise, you risk changing the data in rows that you did not intend.
 
 ###DELETE-ing Some Data
-#####`DELETE FROM products WHERE id = 2;` 
-Deleting a row is a simple query that starts with the `DELETE` keyword and takes a `WHERE` clause. Like with `UPDATE` it is **so very** important that your `WHERE` clause is correct. You are better of triple checking your query _before_ running the delete command and realizing you've deleted way more rows than you wanted.
+#####`DELETE FROM products WHERE id = 2;`
+Deleting a row is a simple query that starts with the `DELETE` keyword and takes a `WHERE` clause. Like with `UPDATE` it is **so very** important that your `WHERE` clause is correct. You are better off triple checking your query _before_ running the delete command than realizing you've deleted way more rows than you wanted.

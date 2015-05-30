@@ -4,7 +4,7 @@
   - Modules as Namespaces (Review)
   - Modules as Mixins
     - Composition over Inheritance
-    - Modules can be 'included' into a class in ruby to be added to the list of ancestors
+    - Modules can be 'included' into a class in Ruby to be added to the list of ancestors
     - Classes can have multiple modules included
   - [Patterns](http://en.wikipedia.org/wiki/Category:Software_design_patterns)
     - [Anti Patterns](http://c2.com/cgi/wiki?AntiPattern)
@@ -16,4 +16,4 @@
 
 
 ## Resources
-  - Links http://www.one-tab.com/page/0uCPT6aETxuMmzcxpVUMgw 
+  - Links http://www.one-tab.com/page/0uCPT6aETxuMmzcxpVUMgw
