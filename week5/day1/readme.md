@@ -24,10 +24,10 @@
     - `404 NOT FOUND`
     - `500 INTERNAL SERVER ERROR`
     - `501 NOT IMPLEMENTED`
-    • 301 REDIRECT
+    - `301 REDIRECT`
 - Accessing the web with Ruby
   - Slack / Curl
-  - 'open-uri'
+  - `require 'open-uri'`
   - Building a URL parser
 
 
