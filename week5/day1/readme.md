@@ -18,7 +18,7 @@
     - `GET`  Retrieves (or Reads) a resource from the server
     - `PUT`  Updates an existing resource on the server
     - `DELETE` Deletes an existing resource on the server
-  - CRUD (__C__reate __R__ead __U__pdate __D__elete)
+  - CRUD (*C*reate *R*ead *U*pdate *D*elete)
   - Response Codes
     - `200 OK`
     - `404 NOT FOUND`
