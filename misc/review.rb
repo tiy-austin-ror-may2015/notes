@@ -33,9 +33,10 @@ chosen_student = STUDENTS[SecureRandom.random_number(STUDENTS.length + 1)]
 def ran_chr(count = `tput cols`.chomp.to_i)
   Array('a'..'z').sample(count).join
 end
-letters = []
+letters   = []
 all_chars = [*('A'..'Z'),*('a'..'z'), ' ', ',' '.', '']
-width =  all_chars.length
+width     = all_chars.length
+width    += 1 if chosen_student.length.odd?
 
 chosen_student.length.times do |n|
   all_chars.shuffle.each do |char|
