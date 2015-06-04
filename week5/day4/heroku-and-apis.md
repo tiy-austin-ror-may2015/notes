@@ -23,15 +23,44 @@ Everytime you run `rake db:migrate` locally or otherwise change your database lo
 
 ## Building an _(insecure)_ API
 ### Dealing with Requests
+When building an API we want to respond with a format that can be consumed by the majority of our clients. The most popular of these is JSON, so all of our API calls will return a JSON response back. 
+
+To return json from a controller action, you have to specify json as the render format
+
+```rb
+  def show
+    render json: User.find(params[:id])
+  end
+```
+Rails will call `.to_json` on whatever object you give to the render method.
+
+### Custom JSON Object
+We don't have to deal with only Active Record objects. Nearly any ruby object can be turned into a json object.
+
+```rb
+  def error
+    render json: { error: 'not working' }, status: 500
+  end
+```
+
+## Adding Methods or Data to an object
+Lets say your `User` class has a method called `full_name` that returns the user's `last_name` and `first_name` joined by a comma. Now lets say you want the `full_name` to be in your json response. You can that by calling `.to_json` and supplying it with the right options. [I recommend reading the documentation for to_json](http://apidock.com/rails/ActiveRecord/Serialization/to_json)
+
+```rb
+	def user_info
+		@user = User.find(params[:id])
+		render json: @user.to_json(methods: :full_name)
+	end
+```
+  
 ### Turning off CSRF
 The **C**ross **S**ite **R**equest **F**orgery token is there to help us and our site against [malicious attacks](https://www.owasp.org/index.php/Cross-Site_Request_Forgery_%28CSRF%29_Prevention_Cheat_Sheet). Because we are making an API that we want anyone to have access to, we are turning off this protection. 
 To turn off CSRF protection in our rails projects we need to change one line and add one line to our `ApplicationController`
 
-```
+```rb
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :null_session
   skip_before_action :verify_authenticity_token
-  
 end
 ```
 Make sure the above two lines are found within your `ApplicationController`
@@ -41,7 +70,7 @@ Make sure the above two lines are found within your `ApplicationController`
 
 To turn off CORS protection we have to make sure all of our responses have the right headers set. Doing this manually for each route would be tedious and error prone. Luckily, Rails allows us to set our headers globally by adding a few lines to our `Application` class found in `config/application.rb`
 
-```
+```rb
 module MyAppName
   class Application < Rails::Application
     config.action_dispatch.default_headers = {
@@ -64,7 +93,7 @@ We are telling rails to match literally *everything* that has not already been m
 
 Inside of `app/controllers/application_controller.rb` you will need to add this method:
 
-```
+```rb
  def not_found
    render json: { message: 'Requested route not found' }, status: 404
  end
