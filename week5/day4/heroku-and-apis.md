@@ -3,6 +3,8 @@
 
 
 ## Working with Heroku
+For the following examples we are assuming you are in a folder called `my_project` and it is a git repo and you are on the `master` branch. So `[my_project][master]$` is the prompt and not part of the command being run or explained.
+
 ### Creating a new Heroku app
 	[my_project][master]$ heroku create
 
@@ -19,9 +21,10 @@ if you run into an error and heroku says to check the logs. This is how you chec
 Everytime you run `rake db:migrate` locally or otherwise change your database locally, you will need to do the same on heroku.
 
 
-## Building (an insecure) API
+## Building an _(insecure)_ API
 ### Dealing with Requests
 ### Turning off CSRF
+The **C**ross **S**ite **R**equest **F**orgery token is there to help us and our site against [malicious attacks](https://www.owasp.org/index.php/Cross-Site_Request_Forgery_%28CSRF%29_Prevention_Cheat_Sheet). Because we are making an API that we want anyone to have access to, we are turning off this protection. 
 To turn off CSRF protection in our rails projects we need to change one line and add one line to our `ApplicationController`
 
 ```
@@ -34,6 +37,8 @@ end
 Make sure the above two lines are found within your `ApplicationController`
 
 ### Turning off CORS
+**C**ross **O**rigin **R**esource **S**haring is a protocol created to give you control over what other websites are allowed to use your [resource](https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS). This is good, but a public API wants everyone to be able to use our data, so we need to turn it off.
+
 To turn off CORS protection we have to make sure all of our responses have the right headers set. Doing this manually for each route would be tedious and error prone. Luckily, Rails allows us to set our headers globally by adding a few lines to our `Application` class found in `config/application.rb`
 
 ```
@@ -51,3 +56,17 @@ end
 I removed all the comments to save space, but it goes right there inside of that class.
 
 ### Setting up a 'catch all' route
+When building an API, **consistency is key**. We need to make sure what we respond with is predictable to the end user. Unfortunately, rails throws an error when a user requests a route that we don't have. We need to be able to set what that response is so that it is consistent with the rest of our API. The following code will allow us to do that. _(It is worth noting that this is not a good coding practice and is not something you should be doing in your applications unless there is no alternative)_
+
+Inside of `config/routes.rb` below **all** of your routes, but before the `end` you need to have this line:
+`match '*not_found_route', to: 'application#skip_cors', via: [:get, :post, :put, :delete]`
+We are telling rails to match literally *everything* that has not already been matched above that comes in and send it to an action on the `ApplicationController` called `not_found`.
+
+Inside of `app/controllers/application_controller.rb` you will need to add this method:
+
+```
+ def not_found
+   render json: { message: 'Requested route not found' }, status: 404
+ end
+```
+Now we can change the returned json to be anything we want or need. _(Be sure to keep the status as 404)_
