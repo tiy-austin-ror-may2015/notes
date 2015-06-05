@@ -5,26 +5,37 @@
 For the following examples we are assuming you are in a folder called `my_project` and it is a git repo and you are on the `master` branch. So `[my_project][master]$` is the prompt and not part of the command being run or explained.
 
 ### Creating a new Heroku app
-	[my_project][master]$ heroku create
-
+```sh
+[my_project][master]$ heroku create
+```
 ### Deploying code to heroku
-	[my_project][master]$ git push heroku master
+```sh
+[my_project][master]$ git push heroku master
+```
 Heroku is another remote of your local git repo. That means you **need** to add, commit, *and* push all your changes to heroku for them to reflect on your live site.
 
 ### Checking your logs
-	[my_project][master]$ heroku logs
+```sh
+[my_project][master]$ heroku logs
+```
 if you run into an error and heroku says to check the logs. This is how you check then.
 
 ### Checking your database on heroku
-	[my_project][master]$ heroku run rails console
+```sh
+[my_project][master]$ heroku run rails console
+```
 Running this command will open a connection to rails console on heroku. It will be a little slower than running it locally, because every command (and response) has to go to and from the heroku server.
 
 ### Migrating the database
-	[my_project][master]$ heroku run rake db:migrate
+```sh
+[my_project][master]$ heroku run rake db:migrate
+```
 Everytime you run `rake db:migrate` locally or otherwise change your database locally, you will need to do the same on heroku.
 
 ### Reseting the database (on heroku)
-	[my_project][master]$ heroku pg:reset DATABASE_URL
+```sh
+[my_project][master]$ heroku pg:reset DATABASE_URL
+```
 Sometimes you need to get rid of all the data on your heroku database. Running the above command will clear out the entire database on heroku. This means it will erase all the tables and all the data inside them. You **will** need to run `rake db:migrate` again after this command has been run.
 
 
