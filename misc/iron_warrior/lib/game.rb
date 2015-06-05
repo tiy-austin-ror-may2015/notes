@@ -1,5 +1,4 @@
 # coding: utf-8
-Entity = Struct.new(:x, :y, :char)
 NORTH = :north
 SOUTH = :south
 EAST = :east
@@ -21,40 +20,6 @@ class Game
                             Entity.new(8, 3, '☖')])
     @warrior.room = @room
     step
-  end
-
-#  def puts(msg)
-#    if msg.is_a?(Array)
-#      with_border = msg.push('|')
-#    else
-#      with_border = "|" + msg + "|"
-#    end
-#    if with_border.length < @width
-#      Kernel.puts with_border[-1] = (' ' * ((@width - with_border.length) - 1)) + '|'
-#    else
-#      Kernel.puts with_border
-#    end
-#  end
-
-  def print_room(width, height, entities)
-    room   = Array.new(height + 2) { Array.new(width + 2) { SPACE }}
-    offset = (@width / 2) - (room.length)
-    entities.each do |entity|
-      room[entity.y][entity.x] = entity.char
-    end
-    room.first.fill('▁')
-    room.first[ 0] = SPACE
-    room.first[-1] = SPACE
-    room[1..-2].each do |row|
-      row[ 0] = '|'
-      row[-1] = '|'
-    end
-    room.last.fill('▔')
-    room.last[0 ] = SPACE
-    room.last[-1] = SPACE
-    room.each do |row|
-      puts "#{' ' * offset}#{row.join}"
-    end
   end
 
   def print_hud
@@ -95,13 +60,12 @@ puts center """ ,-_/          ,.   ,   ,.
       @turn += 1
       system('clear')
       print_hud
-      print_room(@room.width, @room.height, @room.entities)
+      @room.print_room(@width)
       puts line
-      puts @log.reverse.take(5).reverse
+      puts @log.reverse.take(5)
       puts line
       @player.step(@warrior)
-      verify_step
-      sleep 1
+      gets #or sleep 1
     end
   end
 

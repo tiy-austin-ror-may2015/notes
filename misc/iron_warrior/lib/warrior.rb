@@ -4,16 +4,21 @@ class Warrior
     @x = x; @y = y; @char = char; @health = 10; @facing = EAST; @log = log;
     @room = room;
   end
+
   def walk!(direction)
     @facing = direction.upcase
-    case direction
-    when NORTH then @y -= 1
-    when SOUTH then @y += 1
-    when EAST then  @x += 1
-    when WEST then  @x -= 1
+    space = send(direction)
+    if space != Room::EMPTY
+      @log.push "#{color(0)}Warrior#{reset} blocked by #{space.name}"
+    else
+      case direction
+      when NORTH then @y -= 1 if @y > 1
+      when SOUTH then @y += 1 if @y < @room.height
+      when EAST then  @x += 1 if @x < @room.width
+      when WEST then  @x -= 1 if @x > 1
+      end
+      @log.push "#{color(0)}Warrior#{reset} walks #{direction}"
     end
-    @log.push "#{color(0)}Warrior#{reset} walks #{direction}"
-    @log.push "#{color(0)}Warrior#{reset} blocked by #{space}"
   end
 
   private

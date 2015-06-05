@@ -41,6 +41,10 @@ class StudentsController < ApplicationController
     render json: Student.order(gpa: :DESC).first
   end
 
+  def most_common_name
+    render json: Student.group(:name).order('count_name DESC').count(:name).take(params.fetch(:limit, 5))
+  end
+
   def destroy
     if Student.exists?(params[:id])
       Student.destroy(params[:id])
