@@ -36,6 +36,7 @@ Everytime you run `rake db:migrate` locally or otherwise change your database lo
 ```sh
 [my_project][master]$ heroku pg:reset DATABASE_URL
 ```
+_(Note: you need to actually type out DATABASE_URL)_
 Sometimes you need to get rid of all the data on your heroku database. Running the above command will clear out the entire database on heroku. This means it will erase all the tables and all the data inside them. You **will** need to run `rake db:migrate` again after this command has been run.
 
 
