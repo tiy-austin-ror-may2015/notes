@@ -45,12 +45,18 @@ We don't have to deal with only Active Record objects. Nearly any ruby object ca
 
 ## Adding Methods or Data to an object
 Lets say your `User` class has a method called `full_name` that returns the user's `last_name` and `first_name` joined by a comma. Now lets say you want the `full_name` to be in your json response. You can that by calling `.to_json` and supplying it with the right options. [I recommend reading the documentation for to_json](http://apidock.com/rails/ActiveRecord/Serialization/to_json)
-
 ```rb
-	def user_info
-		@user = User.find(params[:id])
-		render json: @user.to_json(methods: :full_name)
-	end
+  #In app/models/user.rb
+  def full_name
+    [last_name, first_name].join(', ')
+  end
+```
+```rb
+  #In app/controllers/users_controller.rb
+  def user_info
+    @user = User.find(params[:id])
+    render json: @user.to_json(methods: :full_name)
+  end
 ```
   
 ### Turning off CSRF
