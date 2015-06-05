@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   get 'students/highest_gpa', to: 'students#highest_gpa'
   get 'students/most_common_name', to: 'students#most_common_name'
+  get 'students/new_additions', to: 'students#new_additions'
 
   get    'students/:id', to: 'students#show'
   put    'students/:id', to: 'students#update'

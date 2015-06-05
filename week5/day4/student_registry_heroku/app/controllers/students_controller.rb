@@ -45,6 +45,10 @@ class StudentsController < ApplicationController
     render json: Student.group(:name).order('count_name DESC').count(:name).take(params.fetch(:limit, 5))
   end
 
+  def new_additions
+    render json: Student.where(created_at: [((1.day.ago)..(Time.now))])
+  end
+
   def destroy
     if Student.exists?(params[:id])
       Student.destroy(params[:id])
