@@ -113,7 +113,7 @@ I removed all the comments to save space, but it goes right there inside of that
 When building an API, **consistency is key**. We need to make sure what we respond with is predictable to the end user. Unfortunately, rails throws an error when a user requests a route that we don't have. We need to be able to set what that response is so that it is consistent with the rest of our API. The following code will allow us to do that. _(It is worth noting that this is not a good coding practice and is not something you should be doing in your applications unless there is no alternative)_
 
 Inside of `config/routes.rb` below **all** of your routes, but before the `end` you need to have this line:
-`match '*not_found_route', to: 'application#skip_cors', via: [:get, :post, :put, :delete]`
+`match '*not_found_route', to: 'application#not_found', via: [:get, :post, :put, :delete]`
 We are telling rails to match literally *everything* that has not already been matched above that comes in and send it to an action on the `ApplicationController` called `not_found`.
 
 Inside of `app/controllers/application_controller.rb` you will need to add this method:
