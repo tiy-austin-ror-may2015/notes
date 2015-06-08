@@ -1,5 +1,6 @@
-- Chatroom Q&A
-- Pigatize (?)
+## Outline
+- Chatroom Homework Q&A
+- Pigatize Challenge
 - HTML in Rails!
 - erb templates
 	- rendering locals
@@ -7,5 +8,8 @@
 	- `<%` will evaluate but not print its return value
 	- `<%=` will evaluate **and** print its return value
 - layouts
+  - The 'wrapper' for the rest of your HTMl
 - partials
+  - Start with an underscore
 - SCSS
+  - Autocompiled by rails
