@@ -33,8 +33,6 @@ class StudentsController < ApplicationController
     student.name      = params[:name]      if params[:name].present?
     student.gpa       = params[:gpa]       if params[:gpa].present?
     student.save
-
-    render json: student
   end
 
   def highest_gpa
