@@ -1,0 +1,31 @@
+<h2>New Student</h2>
+<%= form_for(student) do |f| %>
+  <%= f.label :name, "Full Name" %>
+  <%= f.text_field :name %>
+
+  <%= f.label :course_id %>
+  <%= f.select :course_id, Course.all.map { |course| [course.name, course.id] } %>
+
+  <%= f.label :gpa %>
+  <%= f.number_field :gpa %>
+
+  <%= f.submit %>
+<% end %>
+<!-- <form action='/students' method='POST'>
+  <div>
+    <label name='name'>Name</label>
+    <input type='text' name='name'/>
+  </div>
+
+  <div>
+    <label name='course_id'>Course ID</label>
+    <input type='number' name='course_id'/>
+  </div>
+
+  <div>
+    <label name='gpa'>GPA</label>
+    <input type='number' name='gpa'/>
+  </div>
+
+  <input type='submit' value='Create Student'/>
+</form> -->

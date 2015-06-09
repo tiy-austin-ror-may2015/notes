@@ -1,0 +1,8 @@
+<h2>Total Students (<%= students.count %>)</h2>
+<ul>
+  <% students.each do |student| %>
+   <li>
+     <%= render partial: 'student', locals: { student: student } %>
+   </li>
+  <% end %>
+</ul>
