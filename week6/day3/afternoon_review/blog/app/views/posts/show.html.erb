@@ -1,0 +1,38 @@
+<article>
+  <header>
+    <h1><%= @post.title %></h1>
+    <small><%= @post.category %></small>
+  </header>
+  <p>
+    <%= raw @post.body %>
+  </p>
+  <footer>
+    <div class='actions'>
+      <%= link_to 'All Posts', posts_path %>
+    </div>
+  </footer>
+</article>
+
+<section class='comments'>
+  <h3> Comments (<%= @post.comments.count %>) </h3>
+  <%= form_for(@comment) do |f| %>
+    <%= f.hidden_field :post_id, value: @post.id %>
+    <div>
+      <%= f.label :username %>
+      <%= f.text_field :username %>
+    </div>
+    <div>
+      <%= f.label :body %>
+      <%= f.text_area :body %>
+    </div>
+    <%= f.submit "New Comment" %>
+  <% end %>
+  <ul>
+    <% @post.comments.each do |comment| %>
+      <li>
+        <strong><%= comment.username %></strong>:
+        <%= comment.body %>
+      </li>
+    <% end %>
+  </ul>
+</section>
