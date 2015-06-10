@@ -1,0 +1,13 @@
+<h2>Edit Student</h2>
+<%= form_for(@student) do |f| %>
+  <%= f.label :name, "Full Name" %>
+  <%= f.text_field :name %>
+
+  <%= f.label :course_id %>
+  <%= f.select :course_id, Course.all.map { |course| [course.name, course.id] } %>
+
+  <%= f.label :gpa %>
+  <%= f.number_field :gpa %>
+
+  <%= f.submit %>
+<% end %>

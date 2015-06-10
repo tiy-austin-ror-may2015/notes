@@ -1,0 +1,40 @@
+// Place all the styles related to the students controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+p {
+  padding-left: 20px;
+
+  strong {
+    font-size: 20px;
+  }
+}
+
+.form-input {
+  margin: 10px;
+  label {
+    font-weight: bold;
+    padding-right: 10px;
+  }
+
+  input, select {
+    font-size: 18px;
+    border-radius: 5px;
+    border: 1px solid lightgray;
+    padding: 2px;
+  }
+}
+
+.actions {
+  input {
+    background: lightblue;
+    border-radius: 10px;
+    font-size: 20px;
+    color: white;
+    border: none;
+    padding: 2px;
+    &:hover {
+      background: darken(lightblue, 10%);
+    }
+  }
+}

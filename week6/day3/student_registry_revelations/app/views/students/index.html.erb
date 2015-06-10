@@ -1,0 +1,6 @@
+<h2>Total Students (<%= @students.count %>)</h2>
+<ul>
+  <% @students.each do |student| %>
+    <li> <%= link_to student.name.titleize, student %> </li>
+  <% end %>
+</ul>

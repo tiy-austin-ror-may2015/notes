@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>StudentRegistry</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <header>
+    <h1><%= link_to "Student Registry", root_path %></h1>
+    <nav>
+      <%= link_to 'All Students', students_path %>
+      <%= link_to 'Highest GPA', gpa_path %>
+      <%= link_to 'New Student', new_student_path %>
+    </nav>
+  </header>
+  <%= yield %>
+</body>
+</html>

@@ -1,0 +1,3 @@
+<%= render partial: 'student', locals: { student: @student } %>
+<%= link_to "Back to Index", students_path %> | <%= link_to "Edit Student", edit_student_path(@student) %> | <%= link_to "Destroy Student", student_path(@student), method: "DELETE", confirm: "Are you sure?" %>
+
