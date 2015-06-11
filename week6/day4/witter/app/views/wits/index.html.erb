@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Wits</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Body</th>
+      <th>User</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @wits.each do |wit| %>
+      <tr>
+        <td><%= wit.body %></td>
+        <td><%= link_to wit.user.email, user_path(wit.user.id) %></td>
+        <td><%= link_to 'Show', wit %></td>
+        <td><%= link_to 'Edit', edit_wit_path(wit) %></td>
+        <td><%= link_to 'Destroy', wit, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Wit', new_wit_path %>

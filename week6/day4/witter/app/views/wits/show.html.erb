@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Body:</strong>
+  <%= @wit.body %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= link_to @wit.user.email, @wit.user %>
+</p>
+
+<%= link_to 'Edit', edit_wit_path(@wit) %> |
+<%= link_to 'Back', wits_path %>

@@ -27,6 +27,9 @@
       <% end %>
       |
     </nav>
+    <% if @current_user %>
+      <%= "Hello, #{@current_user.email}" %>
+    <% end %>
   </header>
   <div class='container'>
     <% flash.each do |name, msg| %>

@@ -1,0 +1,25 @@
+<%= form_for(@wit) do |f| %>
+  <% if @wit.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@wit.errors.count, "error") %> prohibited this wit from being saved:</h2>
+
+      <ul>
+      <% @wit.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :body %><br>
+    <%= f.text_field :body %>
+  </div>
+  <div class="field">
+    <%= f.label :user_id, "User" %><br>
+    <%= f.select :user_id, @all_users %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

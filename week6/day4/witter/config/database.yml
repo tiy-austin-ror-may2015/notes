@@ -1,0 +1,16 @@
+default: &default
+  adapter: postgresql
+  pool: 5
+  timeout: 5000
+
+development:
+  <<: *default
+  database: witter_dev
+
+test:
+  <<: *default
+  database: witter_test
+
+production:
+  <<: *default
+  database: witter_production

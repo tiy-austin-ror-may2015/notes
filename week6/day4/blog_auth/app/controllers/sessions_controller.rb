@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
     # If the user exists AND the password entered is correct.
     if user && user.authenticate(params[:password])
       # Save the user id inside a browser cookie.
-      # Specifically, the rails 'session'.  This is how we keep the user
+      # Specifically, the rails 'session'. This is how we keep the user
       # logged in when they navigate around our website.
       session[:user_id] = user.id
       redirect_to root_url, notice: 'Successfully logged in!'

@@ -21,3 +21,10 @@
 
 ## Resources
 - https://gist.github.com/thebucknerlife/10090014
+- http://stackoverflow.com/questions/6556522/authentication-versus-authorization
+- http://api.rubyonrails.org/classes/ActiveModel/SecurePassword/ClassMethods.html#method-i-has_secure_password
+
+
+- Friday
+  - Project Setup
+  - Validations
