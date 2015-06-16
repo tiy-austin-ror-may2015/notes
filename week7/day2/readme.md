@@ -21,13 +21,13 @@
            - Functions are variables, can be passed around.
 	- If ` if () { } `
 	- Looping
-		- ```
+```
 var limit = 100;
 for(var i = 0; i < limit; i++) {
   i + 10;
 }
 ```
-		- ```
+```
 [1,2,3,4].forEach(function(num) {
   console.log(num);
 });
@@ -49,18 +49,19 @@ for(var i = 0; i < limit; i++) {
 	- Document Object Model
 	- The JS Object representation of your HTML page.
 - Querying the DOM
+All dom queries will return either an element node, an array of element nodes, or `null`.
 	- `document.getElementByID()`
 	- `document.getElementsByClassName()`
 	- `document.querySelector()`
 	- `document.querySelectorAll()`
 - Events
-	- ```
+Events are 'bound' to an element and then are executed whenever the event you specified occurs on that selected element.
+```
 var element = document.querySelector('#submit-button');
 element.addEventListener("click", function () {
   console.log('wooo');
 });
 ```
-
 
 ## Resources
 - https://www.javascript.com/
