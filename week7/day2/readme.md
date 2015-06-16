@@ -71,3 +71,6 @@ element.addEventListener("click", function () {
 - https://www.destroyallsoftware.com/talks/the-birth-and-death-of-javascript
 - http://javascriptweekly.com/
 - http://www.unistorgroup.com/uploads/documents/OReilly.JavaScript.The.Good.Parts.May.2008.pdf
+- [Aaron's Intro to JS](https://github.com/TIY-Austin-Front-End-Engineering/Curriculum/tree/master/javascript-introduction)
+- [Aaron's JS Functions Notes](https://github.com/TIY-Austin-Front-End-Engineering/Curriculum/blob/master/DAY09.md)
+- [Aaron's Notes for the DOM](https://github.com/TIY-Austin-Front-End-Engineering/Curriculum/blob/master/DAY10.md)
