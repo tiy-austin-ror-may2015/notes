@@ -45,6 +45,10 @@ for(var i = 0; i < limit; i++) {
 	- Javascript only has function scope.
 	- Hoisting
 		- Variables will be 'hoisted' to the top of the function they are in.
+
+- Birth and Death of Javascript Discussion
+
+- **Bonus**
 - The DOM
 	- Document Object Model
 	- The JS Object representation of your HTML page.
@@ -75,3 +79,5 @@ element.addEventListener("click", function () {
 - [Aaron's Intro to JS](https://github.com/TIY-Austin-Front-End-Engineering/Curriculum/tree/master/javascript-introduction)
 - [Aaron's JS Functions Notes](https://github.com/TIY-Austin-Front-End-Engineering/Curriculum/blob/master/DAY09.md)
 - [Aaron's Notes for the DOM](https://github.com/TIY-Austin-Front-End-Engineering/Curriculum/blob/master/DAY10.md)
+- [Opalrb Ruby -> JS](http://opalrb.org/)
+- [asm.js](http://asmjs.org/)
