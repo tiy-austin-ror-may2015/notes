@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dom example</title>
+  <style>
+    .hidden {
+      display: none;
+    }
+    .red {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Hello World</h1>
+  </header>
+  <ul>
+    <li>what</li>
+    <li>is</li>
+    <li id='descriptor'>going</li>
+    <li>on</li>
+  </ul>
+  <button id='toggle'>Toggle Header Color</button>
+  <script>
+    'use strict';
+    var elem = document.querySelector('#toggle');
+    elem.addEventListener('click', function () {
+      var header = document.querySelector('h1');
+      if (header.className === 'red') {
+        header.className = '';
+      } else {
+        header.className = 'red';
+      }
+    });
+  </script>
+</body>
+</html>
