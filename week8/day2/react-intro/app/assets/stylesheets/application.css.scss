@@ -1,0 +1,90 @@
+@import 'bootstrap-sprockets';
+@import 'bootstrap';
+
+$border-gray: #acacac;
+$light-border-gray: #ececec;
+$background-gray: #f7f5f3;
+
+$red: #d39aa5;
+$orange: #d3ac9a;
+$yellow: #d3c89a;
+$teal: #9ad3c8;
+
+$primary: #9AA5D3;
+$complementary: $yellow;
+
+.notices {
+  margin-top: 20px;
+}
+
+.help-block {
+  font-size:0.9em;
+}
+
+header.main, footer {
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+header.main {
+    border-bottom: 5px solid darken($primary, 5%);
+    background: $primary;
+    color: white;
+    height: 80px;
+    padding-top: 20px;
+    a {
+      color: white;
+    }
+    h1 {
+      display:inline;
+    }
+}
+
+.content {
+  padding-bottom: 60px;
+}
+
+nav ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+nav ul li {
+  display: inline;
+}
+
+ul.list {
+    padding-left:0;
+
+    li, li {
+        background: #fafafa;
+        padding: 10px;
+        margin: 10px 0;
+        border: 1px $light-border-gray solid;
+        list-style: none;
+        border-radius: 4px;
+        overflow: hidden;
+
+        &:hover {
+          box-shadow: 0px 0px 1px rgba(0,0,0,0.5);
+        }
+    }
+
+}
+
+/* Ahhh bootstrap overrides */
+.btn-primary {
+  background: $primary;
+  border-color: darken($primary, 5%);
+  &:hover {
+    background: darken($primary, 15%);
+    border-color: darken($primary, 20%);
+  }
+}
+
+nav li a.danger {
+  &:hover {
+    color: white;
+    background: #D84669;
+  }
+}

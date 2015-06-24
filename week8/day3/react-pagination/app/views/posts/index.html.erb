@@ -1,0 +1,4 @@
+<h1>Posts</h1>
+<%= link_to 'New Post', new_post_path, class: 'btn btn-primary' %>
+<%= react_component('PostList', posts: @posts ) %>
+

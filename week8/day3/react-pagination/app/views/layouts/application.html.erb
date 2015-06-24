@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ReactIntro</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <header class='main'>
+    <div class='row'>
+      <div class='col-sm-4'>
+        <h1><%= link_to 'My Blog', root_path %></h1>
+      </div>
+    </div>
+  </header>
+  <%= react_component("Navigation") %>
+  <main>
+    <div class='container'>
+      <div class='row'>
+        <div class='content col-lg-12'>
+          <div class='notices'>
+            <% flash.each do |key, value| %>
+              <%= display_flash(key, value) %>
+            <% end %>
+          </div>
+          <%= yield %>
+        </div>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

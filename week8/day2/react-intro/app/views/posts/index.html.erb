@@ -1,0 +1,13 @@
+<h1>Posts</h1>
+<%= link_to 'New Post', new_post_path, class: 'btn btn-primary' %>
+<div class='row'>
+  <div class='col-sm-8 col-sm-offset-2'>
+    <% @posts.each do |post| %>
+      <%= react_component('Post', { url: post_path(post),
+                                  title: post.title,
+                              createdAt: post.created_at,
+                                   body: post.body }) %>
+    <% end %>
+  </div>
+</div>
+
