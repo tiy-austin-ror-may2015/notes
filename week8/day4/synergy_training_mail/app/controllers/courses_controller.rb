@@ -22,6 +22,9 @@ class CoursesController < ApplicationController
   def enroll
     ec = EmployeeCourse.new(course_id: params[:id], employee_id: params[:employee_id])
     if ec.save
+      course   = Course.find(params[:id])
+      employee = Employee.find(params[:employee_id])
+      Enrollment.enrolled_confirmation(employee, course).deliver_now
       message = { notice: 'Employee successfully enrolled!' }
     else
       message = { alert: 'Employee already enrolled!' }

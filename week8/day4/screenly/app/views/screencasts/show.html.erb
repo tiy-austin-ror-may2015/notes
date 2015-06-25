@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @screencast.title %>
+</p>
+
+<p>
+  <strong>Url:</strong>
+  <%= @screencast.url %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @screencast.price %>
+</p>
+
+<%= link_to 'Edit', edit_screencast_path(@screencast) %> |
+<%= link_to 'Back', screencasts_path %>
