@@ -1,0 +1,27 @@
+<p style='color:red;'><%= flash[:alert] %></p>
+<p style='color:green;'><%= flash[:notice] %></p>
+
+<%= link_to 'Edit', edit_course_path(@course) %> | <%= link_to 'Back', courses_path %>
+
+<p> <strong>Title:</strong> <%= @course.title %> </p>
+<p> <strong>Description:</strong> <%= @course.description %> </p>
+<p> <strong>Enrollment cap:</strong> <%= @course.enrollment_cap %> </p>
+<p> <strong>Location:</strong> <%= @course.location.name %> </p>
+
+<div class='row'>
+  <div class='col-sm-6'>
+    <h3>Currently Enrolled Employees</h3>
+    <% @course.employees.each do |employee| %>
+      <p><%= link_to employee.full_name, employee %></p>
+    <% end %>
+  </div>
+  <div class='col-sm-6'>
+    <h3>Not Enrolled Employees</h3>
+    <% @non_enrolled_employees.each do |employee| %>
+      <p><%= link_to 'Enroll', enroll_employee_path(@course.id, employee.id), method: 'POST', class: 'btn btn-default' %>
+         <%= link_to employee.full_name, employee %></p>
+    <% end %>
+  </div>
+</div>
+
+
